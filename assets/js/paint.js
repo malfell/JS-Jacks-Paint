@@ -4,18 +4,21 @@ function configureListeners() {
 
 
      for (var i = 0; i < images.length; i++) {        
-        // iterate over images and add mouseover event listeners      
+        // iterate over images and add mouseover event listeners  
+        images[i].addEventListener('mouseover', addOpacity, false);
+        images[i].addEventListener('mouseover', removeOpacity, false) ;   
     } 
 }
 
 function addOpacity(event) {
     // add appropriate CSS class
+    event.addClass('dim');
     getProductInfo(event.target.id);     
 }
 
 function removeOpacity(event) {
      //remove appropriate CSS class
-
+    event.removeClass('dim')
     let element = document.getElementById('color-price');
         element.textContent = '';
         
